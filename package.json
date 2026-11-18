@@ -1,0 +1,13 @@
+{
+  "name": "netboost-pro",
+  "version": "1.0.0",
+  "description": "Android Network & Ping Stabilizer APK",
+  "scripts": {
+    "build": "echo 'Web assets ready in www/'"
+  },
+  "dependencies": {
+    "@capacitor/android": "6.1.2",
+    "@capacitor/cli": "6.1.2",
+    "@capacitor/core": "6.1.2"
+  }
+}
