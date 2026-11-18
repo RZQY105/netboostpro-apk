@@ -1,0 +1,237 @@
+:root {
+  --bg: #0b1120;
+  --card: rgba(30, 41, 59, 0.78);
+  --border: rgba(148, 163, 184, 0.18);
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --active: #10b981;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #172554 0%, var(--bg) 62%);
+  color: var(--text);
+  min-height: 100vh;
+  padding: calc(20px + env(safe-area-inset-top)) 16px calc(24px + env(safe-area-inset-bottom));
+  display: flex;
+  justify-content: center;
+  user-select: none;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  font-size: 1.35rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge {
+  font-size: 0.7rem;
+  background: var(--accent);
+  color: #0f172a;
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-weight: 800;
+}
+
+.subtitle {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.status-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 999px;
+  letter-spacing: 0.5px;
+}
+
+.status-pill.offline {
+  background: rgba(148, 163, 184, 0.15);
+  color: var(--muted);
+}
+
+.status-pill.online {
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--active);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.boost-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 0 4px;
+  gap: 14px;
+}
+
+.boost-button {
+  position: relative;
+  width: 152px;
+  height: 152px;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow: 0 0 32px rgba(56, 189, 248, 0.25);
+  transition: transform 0.2s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.boost-button:active {
+  transform: scale(0.95);
+}
+
+.boost-button.active {
+  border-color: var(--active);
+  box-shadow: 0 0 42px rgba(16, 185, 129, 0.45);
+}
+
+.boost-icon {
+  font-size: 2.2rem;
+}
+
+.boost-text {
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.boost-button.active .pulse-ring {
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  border: 2px solid var(--active);
+  animation: pulse 1.8s infinite ease-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  100% { transform: scale(1.22); opacity: 0; }
+}
+
+.boost-hint {
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.metric-card, .controls-card, .log-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px;
+  backdrop-filter: blur(12px);
+}
+
+.metric-label {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-bottom: 4px;
+  letter-spacing: 0.6px;
+}
+
+.metric-value {
+  font-size: 1.15rem;
+  color: var(--text);
+}
+
+.controls-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.control-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.88rem;
+}
+
+.control-row small {
+  display: block;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+select {
+  background: #0f172a;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 0.82rem;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--active);
+}
+
+.log-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.text-btn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.log-box {
+  background: rgba(15, 23, 42, 0.85);
+  border-radius: 10px;
+  padding: 10px;
+  height: 130px;
+  overflow-y: auto;
+  font-family: monospace;
+  font-size: 0.74rem;
+  line-height: 1.5;
+  color: #cbd5e1;
+}
