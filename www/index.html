@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1120" />
+  <title>NetBoost Pro</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-container">
+    <header class="app-header">
+      <div>
+        <h1>NetBoost <span class="badge">PRO</span></h1>
+        <p class="subtitle">DNS Router &amp; Anti-Lag Stabilizer</p>
+      </div>
+      <div id="statusPill" class="status-pill offline">STANDBY</div>
+    </header>
+
+    <section class="boost-section">
+      <button id="boostBtn" class="boost-button" aria-label="Aktifkan Booster Jaringan">
+        <span class="pulse-ring"></span>
+        <span class="boost-icon">⚡</span>
+        <span id="boostLabel" class="boost-text">AKTIFKAN</span>
+      </button>
+      <p id="boostHint" class="boost-hint">Ketuk untuk mencari DNS tercepat &amp; mengunci kestabilan sinyal</p>
+    </section>
+
+    <section class="metrics-grid">
+      <div class="metric-card">
+        <span class="metric-label">PING</span>
+        <strong id="pingValue" class="metric-value">-- ms</strong>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">JITTER</span>
+        <strong id="jitterValue" class="metric-value">-- ms</strong>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">DNS AKTIF</span>
+        <strong id="dnsValue" class="metric-value">Default ISP</strong>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">STABILITAS</span>
+        <strong id="stabilityValue" class="metric-value">-- %</strong>
+      </div>
+    </section>
+
+    <section class="controls-card">
+      <div class="control-row">
+        <label for="dnsSelect">Target Server DNS</label>
+        <select id="dnsSelect">
+          <option value="auto">Auto (Tercepat Otomatis)</option>
+          <option value="cloudflare">Cloudflare (1.1.1.1)</option>
+          <option value="google">Google DNS (8.8.8.8)</option>
+          <option value="quad9">Quad9 (9.9.9.9)</option>
+        </select>
+      </div>
+
+      <div class="control-row">
+        <div>
+          <strong>Radio Keep-Alive (Anti-Idle)</strong>
+          <small>Menjaga modem 4G/5G tetap aktif saat sinyal lemah</small>
+        </div>
+        <input type="checkbox" id="keepAliveToggle" checked />
+      </div>
+    </section>
+
+    <section class="log-card">
+      <div class="log-header">
+        <span>Log Optimasi Sistem</span>
+        <button id="clearLogBtn" class="text-btn">Bersihkan</button>
+      </div>
+      <div id="logBox" class="log-box">
+        <p>[SYSTEM] Aplikasi siap. Ketuk AKTIFKAN untuk memulai.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
